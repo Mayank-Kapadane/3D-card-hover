@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #730d0c;
+}
+
+.card2 {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 36px;
+    perspective: 2500px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 70px;
+}
+
+.cover-image2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrapper2 {
+    transition: all 0.7s;
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    z-index: -1;
+    background-color: #ccc;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 30px;
+}
+
+.wrapper2 img {
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.card2:hover .wrapper2 {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    opacity: 0.5;
+}
+
+.wrapper2::before,
+.wrapper2::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.7s;
+    border-radius: 30px;
+    position: absolute;
+    left: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.wrapper2::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(
+        to top,
+        transparent 46%,
+        rgba(12, 13, 19, 0.5) 68%,
+        rgba(12, 13, 19, 0.5) 97%
+    );
+}
+
+.wrapper2::after {
+    bottom: 0;
+    opacity: 1;
+    /* background-image: linear-gradient(to bottom,transparent 46%,rgba(115, 13, 12,0.5) 68%, rgba(115, 13, 12,0.5) 97%) ;  */
+}
+
+.card2:hover .wrapper2::before,
+.wrapper2::after {
+    opacity: 1;
+}
+
+.card2:hover .wrapper2::after {
+    height: 120px;
+}
+
+.logo2 {
+    width: 100%;
+    transition: transform 0.7s;
+    position: absolute;
+    bottom: 10px;
+    opacity: 0;
+}
+
+.card2:hover .logo2 {
+    transform: translate3d(0%, -50px, 100px);
+    opacity: 0.8;
+}
+.character2 {
+    width: 100%;
+    height: 400px;
+    opacity: 0;
+    transition: all 0.7s;
+    filter: drop-shadow(2px 2px 2px #000);
+    position: absolute;
+    z-index: -1;
+}
+.card2:hover .character2 {
+    opacity: 1;
+    transform: translate3d(5%, -30%, -670px);
+}
